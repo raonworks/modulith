@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+  web:
+    resources:
+      static-locations: META-INF:/resources, classpath:/resources, classpath:/static, classpath:/static/dist
+
+  threads.virtual.enabled: true
+
+#  docker:
+#    compose:
+#      lifecycle-management: START_ONLY
+
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: devchong
+    password: Y2kim2A!
+
+  rabbitmq.username: devchong
+  rabbitmq.password: Y2kim2A!
+
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true
+    republish-outstanding-events-on-restart: true
+
+  sql:
+    init:
+      mode: always
